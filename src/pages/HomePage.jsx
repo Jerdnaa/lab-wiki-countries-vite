@@ -4,14 +4,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  const [fetching, setFetching] = useState(true);
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get("https://ih-countries-api.herokuapp.com/countries");
       setCountries(response.data);
-      setFetching(false);
       console.log(countries);
     };
     fetchData();
